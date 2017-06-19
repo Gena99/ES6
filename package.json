@@ -1,0 +1,27 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gena99/ES6.git"
+  },
+  "keywords": [
+    "malaga"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gena99/ES6/issues"
+  },
+  "homepage": "https://github.com/Gena99/ES6#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-install": "2.1.0",
+    "babel-preset-env": "^1.5.2"
+  }
+}
