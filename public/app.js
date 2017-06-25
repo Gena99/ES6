@@ -1,23 +1,58 @@
 'use strict';
 
-var _express = require('express');
+document.getElementById('Valider').addEventListener('click', function () {
 
-var _express2 = _interopRequireDefault(_express);
+	var name = document.getElementById('name').value;
+	var formattedName = void 0;
+	var ul = document.getElementById('historique');
+	ul.innerHTML = "";
 
-var _bodyParser = require('body-parser');
+	if (name.length == 0) {
+		formattedName = 'le père noël est une ordure :-)';
+	} else {
+		var firstLetterUpperCase = name.charAt(0).toUpperCase();
+		var nextLettersLowerCase = name.slice(1).toLowerCase();
+		formattedName = '' + firstLetterUpperCase + nextLettersLowerCase;
+		nameHistory.push(formattedName);
+	}
 
-var _bodyParser2 = _interopRequireDefault(_bodyParser);
+	nameHistory.forEach(function (name) {
+		var li = document.createElement('li');
+		li.innerHTML = name;
+		ul.appendChild(li);
+	});
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	// avec .map().reduce()
+	/*let allNames = nameHistory
+ //.filter(name => ...)chercher un true
+ .map(name => {
+ 	nameUpperCase = name.charAt(0).toUpperCase().concat(name.slice(1).toLowerCase());
+ 	'<li>'.concat(nameUpperCase).concat('</li>');
+ })
+ .reduce( (allNames, name) => allNames.concat(name), '');
+ 	ul.innerHTML = allNames;
+ */
+	// fin .map().reduce()
 
-//to do server
-var app = (0, _express2.default)();
-var urlJson = 'database/tasks.json';
-app.use(_express2.default.static(__dirname + '/public'));
-app.use(_bodyParser2.default.json()); // support json encoded bodies
-app.use(_bodyParser2.default.urlencoded({ extended: true })); // support encoded bodies
 
+	//document.getElementById('recevoir').innerHTML = 'Bonjour '.concat(name) .concat(' !');
+	document.getElementById('recevoir').innerHTML = 'Bonjour ' + formattedName + ' !';
+});
+var nameHistory = [];
 
-app.listen(3337, function () {
-	console.log('coucou');
+document.getElementById('searchedName').addEventListener('keyup', function () {
+	var searchedhName = document.getElementById('searchedName').value;
+
+	var filteredHistory = nameHistory.filter(function (name) {
+		return name.toLowerCase().startsWith(searchedhName.toLowerCase());
+	});
+
+	//affichage 
+	var ul = document.getElementById('historique');
+	ul.innerHTML = "";
+	filteredHistory.forEach(function (name) {
+		var li = document.createElement('li');
+		li.innerHTML = name;
+		ul.appendChild(li);
+	});
 });
