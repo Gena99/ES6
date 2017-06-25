@@ -23,23 +23,9 @@ document.getElementById('Valider').addEventListener('click',()=>{
 	
 
 
-	// avec .map().reduce()
-	/*let allNames = nameHistory
-	//.filter(name => ...)chercher un true
-	.map(name => {
-		nameUpperCase = name.charAt(0).toUpperCase().concat(name.slice(1).toLowerCase());
-		'<li>'.concat(nameUpperCase).concat('</li>');
-	})
-	.reduce( (allNames, name) => allNames.concat(name), '');
-
-	ul.innerHTML = allNames;
-	*/
-	// fin .map().reduce()
-
 	
 
 
-	//document.getElementById('recevoir').innerHTML = 'Bonjour '.concat(name) .concat(' !');
 	document.getElementById('recevoir').innerHTML = `Bonjour ${formattedName} !`;
 
 });
